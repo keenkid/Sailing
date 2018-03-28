@@ -5,8 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Sailing Your Dream</title>
+<script type="text/javascript" src="InitialJS.js"></script>
 </head>
 <body>
-	<input type="button" id="btnNormal" value="Click me"/>
+	<input type="button" id="btnNormal" value="Click me" onclick="happy()"/>
 </body>
 </html>
