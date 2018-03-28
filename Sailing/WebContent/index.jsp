@@ -7,6 +7,6 @@
 <title>Sailing Your Dream</title>
 </head>
 <body>
-
+	<input type="button" id="btnNormal" value="Click me"/>
 </body>
 </html>
