@@ -8,6 +8,8 @@
 <script type="text/javascript" src="InitialJS.js"></script>
 </head>
 <body>
-	<input type="button" id="btnNormal" value="Click me" onclick="happy()"/>
+<form action="" method="post">
+	<input type="submit" id="btnNormal" value="Click me"/>
+</form>
 </body>
 </html>
