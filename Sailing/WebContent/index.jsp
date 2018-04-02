@@ -10,8 +10,8 @@
 <link rel="stylesheet" type="text/css" href="basic.css" />
 </head>
 <body>
-<form action="" method="post">
-	<input type="button" id="btnNormal" value="Click" onclick="happy()" style=""/>
+<form action="/EmployeeServlet" method="post">
+	<input type="submit" id="btnNormal" value="Click"/>
 	<p></p>
 	<table>
 		<tr>
