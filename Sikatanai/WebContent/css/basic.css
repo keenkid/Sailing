@@ -31,3 +31,8 @@ input {
 span{
 	font
 }
+
+a{
+	text-decoration:underline;
+	cursor : pointer;
+}

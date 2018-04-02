@@ -18,7 +18,7 @@ function doQuery(){
 	
 	$.ajax({
 		async : true,
-		url : "InformationServlet",
+		url : "../InformationServlet",
 		data : sendData,
 		dataType : "json",
 		success : function(result){
@@ -34,6 +34,7 @@ function parseResult(result){
 	var content = "";
 	for(var i = 0; i < result.employee.length; i++){
 		var emp = result.employee[i];
-		$("#contentBody").append("<tr><td>"+ emp.EmployeeID +"</td><td>"+ emp.Salutation +"</td><td>"+ emp.NationalID +"</td><td>"+ emp.Title +"</td><td>"+ emp.BirthDate +"</td></tr>");
+		content += "<tr><td>"+ emp.EmployeeID +"</td><td>"+ emp.NationalID +"</td><td>"+ emp.Salutation +"</td><td>"+ emp.Title +"</td><td>"+ emp.BirthDate +"</td></tr>";
 	}
+	$("#contentBody").html(content);
 }

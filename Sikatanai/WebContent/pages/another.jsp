@@ -4,9 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>jQuery event binding</title>
+<script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="../js/eventbinding.js"></script>
+<link type="text/css" rel="stylesheet" href="../css/basic.css" />
 </head>
 <body>
-
+	<input type="button" id="btnBind" value="Binding" />
 </body>
 </html>
