@@ -11,31 +11,34 @@
 		<link rel="stylesheet" type="text/css" href="../css/basic.css"/>
 	</head>
 	<body>
-		<input type="button" id="btnQuery" value="Query" onclick="doQuery()" />
-		<p/>
-		<table>
-			<thead>
-				<tr>
-					<th>Employee ID</th>
-					<th class="widetd">National ID Number</th>
-					<th class="widetd">Salutation</th>
-					<th class="widetd">Title</th>
-					<th>Birthday</th>
-				</tr>
-			</thead>
-			<tbody id="contentBody">
-			</tbody>
-			<tfoot>
-				<tr>
-					<td class="tdfooter"><a>&lt;&lt; previous</a></td>
-					<td colspan="3" class="tdfooter">
-					Page Size  <input type="text" style="width:40px; text-align:center" id="txtPageSize" value="10" />&nbsp;&nbsp;&nbsp;&nbsp;
-					Page Index:  <label id="lblPageIndex">1</label>&nbsp;&nbsp;&nbsp;&nbsp;
-					Total Pages: <label id="lblTotalPages">1</label>
-					</td>
-					<td class="tdfooter"><a>next &gt;&gt;</a></td>
-				</tr>
-			</tfoot>
-		</table>
+		<div id="divContent">
+			<input type="button" id="btnQuery" value="Query" onclick="doQuery(this)" />
+			<p/>
+			<p id="msgParam" style="color:red;font-weight:bold;"/>
+			<table id="contentTable">
+				<thead>
+					<tr>
+						<th>Employee ID</th>
+						<th class="widetd" style="width:200px">National ID Number</th>
+						<th class="widetd" style="width:200px">Salutation</th>
+						<th class="widetd" style="width:360px">Title</th>
+						<th>Birthday</th>
+					</tr>
+				</thead>
+				<tbody id="contentBody">
+				</tbody>
+				<tfoot>
+					<tr>
+						<td class="tdfooter"><a id="preLink" onclick="doQuery(this)">&lt;&lt; Previous</a></td>
+						<td colspan="3" class="tdfooter">
+						Page Size  <input type="text" style="width:40px; text-align:center" id="txtPageSize" value="10" />&nbsp;&nbsp;&nbsp;&nbsp;
+						Page Index:  <label id="lblPageIndex">0</label>&nbsp;&nbsp;&nbsp;&nbsp;
+						Total Pages: <label id="lblTotalPages">0</label>
+						</td>
+						<td class="tdfooter"><a id="nextLink" onclick="doQuery(this)">Next &gt;&gt;</a></td>
+					</tr>
+				</tfoot>
+			</table>
+		</div>
 	</body>
 </html>

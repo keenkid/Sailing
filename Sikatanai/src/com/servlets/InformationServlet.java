@@ -16,10 +16,19 @@ public class InformationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
     
 	private IEmployeeOperation operation = null;
+	private int totalCount = 0;
+	private int totalPages = 0;
+	private int pageSize = 0;
+	private int pageIndex = 0;
 	
     public InformationServlet() {
         super();
         operation = new EmployeeOperation();
+        try{
+        	totalCount = operation.getTotalEmployeeCount("SELECT COUNT(*) TotalCount FROM v_Employee");
+        }catch(Exception e){
+        	totalCount = 0;
+        }
     }
     
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -30,15 +39,14 @@ public class InformationServlet extends HttpServlet {
 		String responseContent = "";
 		
 		try {
-			int pageSize = Integer.parseInt(request.getParameter("pageSize"));
-			int pageIndex = Integer.parseInt(request.getParameter("pageIndex"));
-			int totalPages = Integer.parseInt(request.getParameter("totalPages"));
+			pageSize = Integer.parseInt(request.getParameter("pageSize"));
+			pageIndex = Integer.parseInt(request.getParameter("pageIndex"));
+			totalPages = totalCount / pageSize + (totalCount % pageSize == 0 ? 0 : 1);
 			
-			int start,end,totalCount;
+			int start,end;
 			start = (pageIndex - 1) * pageSize;
 			end = pageIndex * pageSize;
-			
-			totalCount = operation.getTotalEmployeeCount("SELECT COUNT(*) TotalCount FROM v_Employee");
+						
 			responseContent = getEmployeeContent(start,end);
 		} catch (Exception e) {
 			responseContent = e.getMessage();
@@ -73,7 +81,12 @@ public class InformationServlet extends HttpServlet {
 			content.append(e.getBirthday());
 			content.append("\"},");
 		}
-		content.replace(content.length()-1, content.length(), "]}");
+		content.replace(content.length()-1, content.length(), "],");
+		content.append("\"pages\":\"");
+		content.append(totalPages);
+//		content.append("\",\"index\":\"");
+//		content.append(pageIndex+1);
+		content.append("\"}");
 		return content.toString();
 	}
 

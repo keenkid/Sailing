@@ -4,7 +4,7 @@ table, th, td{
 }
 
 th, td{
-	text-align:center;
+	text-align:left;
 	width:160px;
 	height:30px;
 }
@@ -35,4 +35,9 @@ span{
 a{
 	text-decoration:underline;
 	cursor : pointer;
+	font-weight: bold;
+}
+
+a:hover{
+	color:green;
 }
